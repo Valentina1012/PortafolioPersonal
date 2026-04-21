@@ -1,0 +1,20 @@
+@import '../utilities/breakpoint.css';
+@import '../utilities/colour.css';
+@import '../utilities/typography.css';
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans-serif);
+  color: var(--color-text-neutral-primary);
+  font-weight: normal;
+  font-size: var(--text-small);
+  background: #1e1e1e;
+
+  @variant desktop {
+    font-size: var(--text-body);
+  }
+}

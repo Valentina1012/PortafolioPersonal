@@ -1,0 +1,17 @@
+@theme {
+  /* Font Family */
+  --font-serif: 'Charmonman', serif;
+  --font-sans-serif: 'Manrope', sans-serif;
+  --font-impact: 'Unbounded', sans-serif;
+
+  /* Font Size */
+  --text-h1: 61.04px;
+  --text-h2: 48.83px;
+  --text-h3: 39.06px;
+  --text-h4: 31.25px;
+  --text-h5: 25px;
+  --text-h6: 20px;
+  --text-body: 16px;
+  --text-small: 12.8px;
+  --text-extra-small: 10.24px;
+}
