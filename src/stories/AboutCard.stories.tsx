@@ -16,11 +16,17 @@ type Story = StoryObj<typeof meta>;
 
 // Variants
 export const WithLink: Story = {
-  render: (args) => <AboutCard {...args} icon={<Github />} />,
+  render: (args) => (
+    <AboutCard
+      {...args}
+      icon={<Github />}
+    />
+  ),
   args: {
     title: 'Title',
     link: 'https://github.com/Valentina1012',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc luctus commodo.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc luctus commodo.',
     hasDownloadableLink: false,
   },
 };

@@ -1,17 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ContactButton from '../components/ContactButton';
+import IconAnchor from '../components/IconAnchor';
 
 const meta = {
-  title: 'Example/ContactButton',
-  component: ContactButton,
+  title: 'Example/IconAnchor',
+  component: IconAnchor,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ContactButton>;
+} satisfies Meta<typeof IconAnchor>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Variants
-export const Default: Story = {};
+export const Default: Story = {
+};

@@ -1,8 +1,7 @@
 @theme {
   /* Font Family */
-  --font-serif: 'Charmonman', serif;
   --font-sans-serif: 'Manrope', sans-serif;
-  --font-impact: 'Unbounded', sans-serif;
+  --font-impact: 'Caveat', sans-serif;
 
   /* Font Size */
   --text-h1: 61.04px;

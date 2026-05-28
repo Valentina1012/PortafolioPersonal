@@ -6,11 +6,11 @@ export const PrevButton = ({ ...props }) => {
 
   return (
     <button
-      className={`cursor-pointer border border-neutral-primary rounded-border-s w-10 h-10 bg-transparent p-xs text-neutral-secondary`}
+      className={`cursor-pointer border border-neutral-inverse-primary rounded-border-xxl w-10 h-10 bg-transparent p-xs text-neutral-secondary`}
       type='button'
       {...restProps}
     >
-      <CaretLeft />
+      <CaretLeft className='text-neutral-tertiary'/>
       {children}
     </button>
   );
@@ -21,11 +21,11 @@ export const NextButton = ({ ...props }) => {
 
   return (
     <button
-      className={`cursor-pointer border border-neutral-primary rounded-border-s w-10 h-10 bg-transparent p-xs text-neutral-secondary`}
+      className={`cursor-pointer border border-neutral-inverse-primary rounded-border-xxl w-10 h-10 bg-transparent p-xs text-neutral-secondary`}
       type='button'
       {...restProps}
     >
-      <CaretRight />
+      <CaretRight className='text-neutral-tertiary'/>
       {children}
     </button>
   );

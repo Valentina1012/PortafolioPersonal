@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ContactButton from '../components/ContactButton';
+import TechNavigation from '../components/TechNavigation';
 
 const meta = {
-  title: 'Example/ContactButton',
-  component: ContactButton,
+  title: 'Example/TechNavigation',
+  component: TechNavigation,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ContactButton>;
+} satisfies Meta<typeof TechNavigation>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

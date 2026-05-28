@@ -28,7 +28,7 @@ export default function ProjectDisplay({ slides }: { slides: SlideType[] }) {
 
     const currentEl = slideRefs.current[currentIdx];
     const nextEl = slideRefs.current[nextIdx];
-
+    
     if (!currentEl || !nextEl) return;
 
     // Resetea las posiciones y visibilidad

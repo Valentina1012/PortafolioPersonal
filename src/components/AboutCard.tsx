@@ -8,6 +8,7 @@ type AboutCardProps = {
   hasDownloadableLink?: boolean;
   linkContent?: string;
 }
+
 export default function AboutCard({
   title,
   link,
@@ -17,15 +18,15 @@ export default function AboutCard({
   linkContent,
 }: AboutCardProps) {
   return (
-    <div className='bg-neutral-secondary rounded-border-xl p-l lg:p-xl flex flex-col gap-6 text-neutral-secondary'>
+    <div className='bg-neutral-secondary rounded-border-xs p-l lg:p-l flex flex-col gap-s text-neutral-secondary'>
       <a
-        className='border border-border-neutral-inverse-primary w-fit p-3 rounded-lg hover:text-brand-primary'
+        className='bg-neutral-inverse-secondary text-neutral-inverse-primary border border-border-neutral-inverse-primary w-fit p-3 rounded-lg hover:text-brand-primary'
         href={link}
       >
         {icon}
       </a>
-      <div className='flex flex-col gap-2'>
-        <p className='body-bold'>{title}</p>
+      <div className='flex flex-col'>
+        <p className='h5-bold font-impact'>{title}</p>
         {link ? (
           <NavAnchor
             link={link}
