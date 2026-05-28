@@ -2,7 +2,7 @@ import type React from 'react';
 import Globe from '../assets/icons/Globe.svg?react';
 
 type IconAnchorProps = {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   link: string;
 };
 
