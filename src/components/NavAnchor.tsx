@@ -1,12 +1,16 @@
 import Download from '../assets/icons/Download.svg?react';
 
 type NavAnchorProps = {
-    link: string;
-    isDownloadable?: boolean;
-    content?: string;
-}
+  link: string;
+  isDownloadable?: boolean;
+  content?: string;
+};
 
-export default function NavAnchor({ link, isDownloadable, content }: NavAnchorProps) {
+export default function NavAnchor({
+  link,
+  isDownloadable,
+  content,
+}: NavAnchorProps) {
   return isDownloadable ? (
     <a
       className='text-neutral-tertiary hover:text-brand-primary flex gap-xs'
@@ -17,9 +21,9 @@ export default function NavAnchor({ link, isDownloadable, content }: NavAnchorPr
   ) : (
     <a
       className='text-neutral-tertiary hover:text-brand-primary underline'
-      href={link}
+      href={link} target='_blank' rel='noopener noreferrer'
     >
-      {link}
+      {content}
     </a>
   );
 }

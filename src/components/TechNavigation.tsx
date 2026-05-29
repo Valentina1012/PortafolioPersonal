@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import gsap from 'gsap';
+import TechAnchor from './TechAnchor';
+import { techs } from '../data/techs';
 
 export default function TechNavigation() {
   const [activeTech, setActiveTech] = useState({
@@ -42,27 +44,8 @@ export default function TechNavigation() {
 
   return (
     <div className='relative rounded-border-xl border border-neutral-inverse-primary p-xs h-11.75 w-83.5 flex items-center justify-between'>
-      <button
-        id='0'
-        className={`small-bold relative  p-m rounded-border-xxl z-10 uppercase ${activeTech.num == '0' ? 'relative text-neutral-inverse-primary' : 'bg-transparent text-neutral-secondary'}`}
-        onClick={handleClick}
-      >
-        frontend
-      </button>
-      <button
-        id='1'
-        className={`small-bold relative p-m rounded-border-xxl z-10 uppercase ${activeTech.num == '1' ? 'relative text-neutral-inverse-primary' : 'bg-transparent text-neutral-secondary'}`}
-        onClick={handleClick}
-      >
-        backend
-      </button>
-      <button
-        id='2'
-        className={`small-bold relative p-m rounded-border-xxl z-10 uppercase ${activeTech.num == '2' ? 'text-neutral-inverse-primary' : 'bg-transparent text-neutral-secondary'}`}
-        onClick={handleClick}
-      >
-        herramientas
-      </button>
+      {techs.map((tech, index) => {return <TechAnchor key={index} id={String(index)} activeTech={activeTech} handleClick={handleClick} content={tech.name} />})}
+
       <div className='w-full absolute left-0.75 top-0.75 h-9.75 z-0 flex'>
         <div
           className={`boton h-full rounded-border-xxl bg-neutral-inverse-secondary absolute w-[91.34px]`}

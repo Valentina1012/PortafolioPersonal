@@ -28,6 +28,7 @@ export const WithLink: Story = {
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc luctus commodo.',
     hasDownloadableLink: false,
+    linkContent: 'github.com/Valentina1012',
   },
 };
 
@@ -37,5 +38,6 @@ export const WithDescription: Story = {
     title: 'Title',
     description: 'Lorem ipsum dolor sit amet, consectetur',
     hasDownloadableLink: false,
+    
   },
 };
