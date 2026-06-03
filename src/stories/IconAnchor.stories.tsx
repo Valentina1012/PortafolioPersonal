@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import IconAnchor from '../components/IconAnchor';
-import Globe from '../assets/icons/Globe.svg?react';
+import { IconAnchor } from '../components';
+import { Globe } from '../assets/icons';
 
 const meta = {
   title: 'Example/IconAnchor',

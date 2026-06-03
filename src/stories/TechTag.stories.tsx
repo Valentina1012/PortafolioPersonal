@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import Code from '../assets/icons/Code.svg?react';
-import TechTag from '../components/TechTag';
+import { Code } from '../assets/icons';
+import { TechTag } from '../components';
 
 const meta = {
   title: 'Example/TechTag',

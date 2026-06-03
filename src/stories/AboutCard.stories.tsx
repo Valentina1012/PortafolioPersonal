@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import Github from '../assets/icons/GithubLogo.svg?react';
-import AboutCard from '../components/AboutCard';
+import { GithubLogo } from '../assets/icons';
+import { AboutCard } from '../components';
 
 const meta = {
   title: 'Example/AboutCard',
@@ -16,10 +16,10 @@ type Story = StoryObj<typeof meta>;
 
 // Variants
 export const WithLink: Story = {
-  render: (args) => (
+  render: (args: Story['args']) => (
     <AboutCard
       {...args}
-      icon={<Github />}
+      icon={<GithubLogo />}
     />
   ),
   args: {
@@ -33,7 +33,7 @@ export const WithLink: Story = {
 };
 
 export const WithDescription: Story = {
-  render: (args) => <AboutCard {...args} icon={<Github />} />,
+  render: (args: Story['args']) => <AboutCard {...args} icon={<GithubLogo />} />,
   args: {
     title: 'Title',
     description: 'Lorem ipsum dolor sit amet, consectetur',

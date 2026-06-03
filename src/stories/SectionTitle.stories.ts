@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import SectionTitle from '../components/SectionTitle';
+import { SectionTitle } from '../components';
 
 const meta = {
   title: 'Example/SectionTitle',

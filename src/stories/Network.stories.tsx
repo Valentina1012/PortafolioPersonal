@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import Network from '../components/Network';
-import Github from '../assets/icons/GithubLogo.svg?react';
+import { Network } from '../components';
+import { GithubLogo } from '../assets/icons';
 
 const meta = {
   title: 'Example/Network',
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 // Variants
 export const Large: Story = {
-  render: (args) => <Network {...args} logo={<Github />} />,
+  render: (args) => <Network {...args} logo={<GithubLogo />} />,
   args: {
     name: 'Network',
     size: 'large',
@@ -24,7 +24,7 @@ export const Large: Story = {
 };
 
 export const Small: Story = {
-  render: (args) => <Network {...args} logo={<Github />} />,
+  render: (args) => <Network {...args} logo={<GithubLogo />} />,
   args: {
     name: 'Network',
     size: 'small',

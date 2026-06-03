@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import TechNavigation from '../components/TechNavigation';
+import { TechNavigation } from '../components';
 
 const meta = {
   title: 'Example/TechNavigation',

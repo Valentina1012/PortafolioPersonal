@@ -1,15 +1,34 @@
-export * from './AboutCard';
-export * from './CarouselArrowButtons';
-export * from './CarouselDotButton';
-export * from './ContactButton';
-export * from './IconAnchor';
-export * from './NavAnchor';
-export * from './Network';
-export * from './ProjectCard';
-export * from './ProjectDisplay';
-export * from './SectionBody';
-export * from './SectionTitle';
-export * from './TechAnchor';
-export * from './TechCard';
-export * from './TechNavigation';
-export * from './TechTag';
+import { AboutCard } from './AboutCard';
+import { PrevButton, NextButton } from './CarouselArrowButtons';
+import { DotButton } from './CarouselDotButton';
+import { ContactButton } from './ContactButton';
+import { IconAnchor } from './IconAnchor';
+import { NavAnchor } from './NavAnchor';
+import { Network } from './Network';
+import { ProjectCard } from './ProjectCard';
+import { ProjectDisplay } from './ProjectDisplay';
+import { SectionBody } from './SectionBody';
+import { SectionTitle } from './SectionTitle';
+import { TechAnchor } from './TechAnchor';
+import { TechCard } from './TechCard';
+import { TechNavigation } from './TechNavigation';
+import { TechTag } from './TechTag';
+
+export {
+  AboutCard,
+  PrevButton,
+  NextButton,
+  DotButton,
+  ContactButton,
+  IconAnchor,
+  NavAnchor,
+  Network,
+  ProjectCard,
+  ProjectDisplay,
+  SectionBody,
+  SectionTitle,
+  TechAnchor,
+  TechCard,
+  TechNavigation,
+  TechTag,
+};
