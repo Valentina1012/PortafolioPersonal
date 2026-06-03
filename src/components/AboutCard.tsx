@@ -1,4 +1,4 @@
-import NavAnchor from './NavAnchor.tsx';
+import { NavAnchor } from './';
 
 type AboutCardProps = {
   title: string;
@@ -9,7 +9,7 @@ type AboutCardProps = {
   linkContent?: string;
 };
 
-export default function AboutCard({
+export function AboutCard({
   title,
   link,
   icon,

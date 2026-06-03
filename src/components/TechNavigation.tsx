@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import gsap from 'gsap';
-import TechAnchor from './TechAnchor';
+import { TechAnchor } from './';
 import { techs } from '../data/techs';
 
-export default function TechNavigation() {
+export function TechNavigation() {
   const [activeTech, setActiveTech] = useState({
     num: '0',
     positionX: 0,
@@ -30,7 +30,11 @@ export default function TechNavigation() {
       { x: `${xPositions[targetIndex]}`, duration: 0.4, ease: 'power3.out' }
     );
 
-    gsap.to('.boton', { width: `${techsWidth[targetIndex]}px`, duration: 0.4, ease: 'power2.out' });
+    gsap.to('.boton', {
+      width: `${techsWidth[targetIndex]}px`,
+      duration: 0.4,
+      ease: 'power2.out',
+    });
   };
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -44,7 +48,17 @@ export default function TechNavigation() {
 
   return (
     <div className='relative rounded-border-xl border border-neutral-inverse-primary p-xs h-11.75 w-83.5 flex items-center justify-between'>
-      {techs.map((tech, index) => {return <TechAnchor key={index} id={String(index)} activeTech={activeTech} handleClick={handleClick} content={tech.name} />})}
+      {techs.map((tech, index) => {
+        return (
+          <TechAnchor
+            key={index}
+            id={String(index)}
+            activeTech={activeTech}
+            handleClick={handleClick}
+            content={tech.name}
+          />
+        );
+      })}
 
       <div className='w-full absolute left-0.75 top-0.75 h-9.75 z-0 flex'>
         <div

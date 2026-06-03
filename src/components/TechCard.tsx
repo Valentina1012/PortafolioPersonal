@@ -5,7 +5,7 @@ type TechCardProps = {
   icon?: React.ReactNode;
 };
 
-export default function TechCard({
+export function TechCard({
   icon = <React />,
 }: TechCardProps) {
   return (

@@ -5,7 +5,7 @@ type TechTagProps = {
   icon?: React.ReactNode;
 };
 
-export default function TechTag({
+export function TechTag({
   name = 'Tech',
   icon = <Code />,
 }: TechTagProps) {

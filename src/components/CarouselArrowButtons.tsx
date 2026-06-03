@@ -10,7 +10,7 @@ export const PrevButton = ({ ...props }) => {
       type='button'
       {...restProps}
     >
-      <CaretLeft className='text-neutral-tertiary'/>
+      <CaretLeft className='text-neutral-tertiary hover:text-neutral-secondary'/>
       {children}
     </button>
   );
@@ -25,7 +25,7 @@ export const NextButton = ({ ...props }) => {
       type='button'
       {...restProps}
     >
-      <CaretRight className='text-neutral-tertiary'/>
+      <CaretRight className='text-neutral-tertiary hover:text-neutral-secondary'/>
       {children}
     </button>
   );

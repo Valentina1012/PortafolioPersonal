@@ -1,143 +1,125 @@
-import { useState, useRef, useEffect } from 'react';
+import { useCallback, useEffect, useRef, type TouchEvent } from 'react';
 import gsap from 'gsap';
-import { usePrevNextButtons } from '../hooks/usePrevNextButtons';
-import { NextButton, PrevButton } from './CarouselArrowButtons';
 import type { SlideType } from '../types/carouselTypes';
 import { DotButton } from './CarouselDotButton';
 
-export default function ProjectDisplay({ slides }: { slides: SlideType[] }) {
-  const [actualSlide, setActualSlide] = useState(slides[0]);
-  const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(
-    null
-  );
-  const [selectedIndex, setSelectedIndex] = useState(0);
+type ProjectDisplayProps = {
+  slides: SlideType[];
+  actualSlide: SlideType;
+  slideDirection: 'left' | 'right' | null;
+  onChangeSlide: (index: number, direction: 'left' | 'right') => void;
+};
+
+export function ProjectDisplay({
+  slides,
+  actualSlide,
+  slideDirection,
+  onChangeSlide,
+}: ProjectDisplayProps) {
   const slideRefs = useRef<(HTMLImageElement | null)[]>([]);
 
-  const { onPrevButtonClick, onNextButtonClick, canScrollPrev, canScrollNext } =
-    usePrevNextButtons(slides, setActualSlide, actualSlide, setSelectedIndex);
+  const animateSlide = useCallback(
+    (direction: 'left' | 'right', targetIndex: number) => {
+      const nextIdx = targetIndex;
+      const currentIdx =
+        direction === 'left'
+          ? targetIndex === 0
+            ? slides.length - 1
+            : targetIndex - 1
+          : (targetIndex + 1) % slides.length;
 
-  // Función para la animación de GSAP
-  const animateSlide = (direction: 'left' | 'right', targetIndex?: number) => {
-    const currentIdx = actualSlide.num - 1;
-    const nextIdx =
-      targetIndex !== undefined
-        ? targetIndex
-        : direction === 'left'
-          ? (currentIdx + 1) % slides.length
-          : (currentIdx - 1 + slides.length) % slides.length;
+      const currentEl = slideRefs.current[currentIdx];
+      const nextEl = slideRefs.current[nextIdx];
 
-    const currentEl = slideRefs.current[currentIdx];
-    const nextEl = slideRefs.current[nextIdx];
-    
-    if (!currentEl || !nextEl) return;
+      if (!currentEl || !nextEl) return;
 
-    // Resetea las posiciones y visibilidad
-    gsap.set([currentEl, nextEl], { x: 0, opacity: 1 });
+      gsap.set([currentEl, nextEl], { x: 0, opacity: 1 });
 
-    if (direction === 'left') {
-      // Va hacia la siguiente: La actual se desliza a la izquierda y la siguiente entra desde la derecha
-      gsap.fromTo(
-        nextEl,
-        { x: '100%', opacity: 0 },
-        { x: '0%', opacity: 1, duration: 0.4, ease: 'power2.out' }
-      );
-      gsap.fromTo(
-        currentEl,
-        { x: '0%', opacity: 1 },
-        { x: '-100%', opacity: 0, duration: 0.4, ease: 'power2.out' }
-      );
-    } else {
-      // Va hacia la anterior: La actual se desliza a la derecha y la siguiente entra desde la izquierda
-      gsap.fromTo(
-        nextEl,
-        { x: '-100%', opacity: 0 },
-        { x: '0%', opacity: 1, duration: 0.4, ease: 'power2.out' }
-      );
-      gsap.fromTo(
-        currentEl,
-        { x: '0%', opacity: 1 },
-        { x: '100%', opacity: 0, duration: 0.4, ease: 'power2.out' }
-      );
-    }
-  };
+      if (direction === 'left') {
+        gsap.fromTo(
+          nextEl,
+          { x: '100%', opacity: 0 },
+          { x: '0%', opacity: 1, duration: 0.4, ease: 'power2.out' }
+        );
+        gsap.fromTo(
+          currentEl,
+          { x: '0%', opacity: 1 },
+          { x: '-100%', opacity: 0, duration: 0.4, ease: 'power2.out' }
+        );
+      } else {
+        gsap.fromTo(
+          nextEl,
+          { x: '-100%', opacity: 0 },
+          { x: '0%', opacity: 1, duration: 0.4, ease: 'power2.out' }
+        );
+        gsap.fromTo(
+          currentEl,
+          { x: '0%', opacity: 1 },
+          { x: '100%', opacity: 0, duration: 0.4, ease: 'power2.out' }
+        );
+      }
+    },
+    [slides.length]
+  );
 
-  // Wrapper para dot buttons que también activa la animación GSAP
+  useEffect(() => {
+    if (slideDirection === null) return;
+
+    animateSlide(slideDirection, actualSlide.num - 1);
+  }, [actualSlide.num, animateSlide, slideDirection]);
+
   const handleDotClick = (index: number) => {
     const currentIdx = actualSlide.num - 1;
 
-    if (index === currentIdx) return; // Ya está en ese slide
+    if (index === currentIdx) return;
 
     const direction = index > currentIdx ? 'left' : 'right';
-    setSlideDirection(direction);
-    animateSlide(direction, index);
-
-    setActualSlide(slides[index]);
-    setSelectedIndex(index);
+    onChangeSlide(index, direction);
   };
 
-  // Manejadores para la animación de GSAP y cambio de slide
-  const handlePrevClick = () => {
-    setSlideDirection('right');
-    animateSlide('right');
-    onPrevButtonClick();
-  };
-
-  const handleNextClick = () => {
-    setSlideDirection('left');
-    animateSlide('left');
-    onNextButtonClick();
-  };
-
-  // Manejadores para swipe en móviles
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
   const minSwipeDistance = 50;
 
-  const onTouchStart = (e: React.TouchEvent) => {
+  const onTouchStart = (e: TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
     touchEndX.current = e.touches[0].clientX;
   };
 
-  const onTouchMove = (e: React.TouchEvent) => {
+  const onTouchMove = (e: TouchEvent) => {
     touchEndX.current = e.touches[0].clientX;
   };
 
   const onTouchEnd = () => {
     const swipeDistance = touchEndX.current - touchStartX.current;
+    const currentIdx = actualSlide.num - 1;
 
-    if (swipeDistance > minSwipeDistance && canScrollPrev) {
-      setSlideDirection('right');
-      animateSlide('right');
-      onPrevButtonClick();
-    } else if (swipeDistance < -minSwipeDistance && canScrollNext) {
-      setSlideDirection('left');
-      animateSlide('left');
-      onNextButtonClick();
+    if (swipeDistance > minSwipeDistance) {
+      const nextIndex =
+        currentIdx - 1 >= 0 ? currentIdx - 1 : slides.length - 1;
+      onChangeSlide(nextIndex, 'right');
+    } else if (swipeDistance < -minSwipeDistance) {
+      const nextIndex = currentIdx + 1 < slides.length ? currentIdx + 1 : 0;
+      onChangeSlide(nextIndex, 'left');
     }
   };
 
-  // Limpiar la dirección de la animación
-  useEffect(() => {
-    if (slideDirection) {
-      const timer = setTimeout(() => setSlideDirection(null), 400);
-      return () => clearTimeout(timer);
-    }
-  }, [actualSlide, slideDirection]);
+  const selectedIndex = actualSlide.num - 1;
 
   return (
-    <div className='w-72 h-70 lg:w-163 lg:h-90 relative flex flex-col lg:items-end justify-end'>
+    <div className='w-72 h-70 lg:w-186.75 lg:h-96 relative flex flex-col lg:items-end justify-end'>
       <img
-        className='absolute z-20 top-0 right-15 w-20 h-20 lg:w-30 lg:h-30 object-cover'
+        className='absolute z-20 top-0 right-4 lg:right-15 w-20 h-20 lg:w-34.25 lg:h-34.25 object-cover'
         src={actualSlide.imgsSecondary && actualSlide.imgsSecondary[0]}
         alt=''
       />
       <img
-        className='absolute w-30 left-0 bottom-18 h-30 object-cover hidden lg:block'
+        className='absolute w-34.25 left-0 bottom-18 h-34.25 object-cover hidden lg:block'
         src={actualSlide.imgsSecondary && actualSlide.imgsSecondary[1]}
         alt=''
       />
       <div
-        className='relative w-72 h-54 lg:w-100 lg:h-75 flex items-center justify-center overflow-hidden'
+        className='relative w-72 h-54 lg:w-114.5 lg:h-85.75 flex items-center justify-center overflow-hidden'
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -155,10 +137,6 @@ export default function ProjectDisplay({ slides }: { slides: SlideType[] }) {
             />
           );
         })}
-        <div className='gap-s absolute top-0 left-0 hidden lg:flex'>
-          <PrevButton onClick={handlePrevClick} />
-          <NextButton onClick={handleNextClick} />
-        </div>
       </div>
       <div className='p-l flex gap-s items-center justify-center lg:hidden'>
         {slides.map((_, index) => {

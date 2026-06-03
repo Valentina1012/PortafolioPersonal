@@ -19,7 +19,7 @@ type NetworkProps = VariantProps<typeof variants> & {
   name: string;
 };
 
-export default function Network({ logo= <Github />, name='Lorem ipsum', size }: NetworkProps) {
+export function Network({ logo= <Github />, name='Lorem ipsum', size }: NetworkProps) {
   return (
     <div className='flex items-center gap-s'>
       <span className='rounded-border-xl border border-neutral-primary p-m text-neutral-inverse-tertiary'>

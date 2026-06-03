@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react';
+import type { Dispatch, SetStateAction, ReactNode } from 'react';
 import type { ImgHTMLAttributes } from 'react';
 
 export type SlideType = {
@@ -7,6 +7,9 @@ export type SlideType = {
   description: string;
   img: ImgHTMLAttributes<HTMLImageElement>['src'];
   imgsSecondary?: ImgHTMLAttributes<HTMLImageElement>['src'][];
+  linkDeploy: string;
+  linkRepository: string;
+  techs: { name: string; icon: ReactNode }[];
 };
 
 export type UsePrevNextButtonsType = {

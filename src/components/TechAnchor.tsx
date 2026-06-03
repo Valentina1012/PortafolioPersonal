@@ -8,7 +8,7 @@ type TechAnchorProps = {
   content?: string;
 };
 
-export default function TechAnchor({
+export function TechAnchor({
   handleClick,
   activeTech,
   id,

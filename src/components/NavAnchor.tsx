@@ -6,7 +6,7 @@ type NavAnchorProps = {
   content?: string;
 };
 
-export default function NavAnchor({
+export function NavAnchor({
   link,
   isDownloadable,
   content,

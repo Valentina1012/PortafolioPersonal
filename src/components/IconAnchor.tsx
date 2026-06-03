@@ -6,13 +6,13 @@ type IconAnchorProps = {
   link: string;
 };
 
-export default function IconAnchor({
+export function IconAnchor({
   icon = <Globe />,
   link = 'https://example.com/',
 }: IconAnchorProps) {
   return (
     <div className='bg-neutral-tertiary h-14 w-14 flex items-center justify-center rounded-border-l border border-neutral-inverse-primary'>
-      <a href={link} className='text-neutral-tertiary' target='_blank' rel='noopener noreferrer'>
+      <a href={link} className='text-neutral-tertiary hover:text-brand-primary' target='_blank' rel='noopener noreferrer'>
         {icon}
       </a>
     </div>

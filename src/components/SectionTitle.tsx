@@ -1,4 +1,4 @@
-export default function SectionTitle({
+export function SectionTitle({
   title = 'Section Title',
 }: {
   title: string;

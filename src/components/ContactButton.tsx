@@ -1,6 +1,6 @@
 import Star from '../assets/icons/Star.svg?react';
 
-function ContactButton() {
+export function ContactButton() {
   return (
     <button className='w-40 h-15 flex items-center justify-center rounded-border-s bg-neutral-inverse-primary border border-neutral-inverse-primary body-bold text-[#F3F2F2] relative group hover:-rotate-12 transition-all duration-300 hover:shadow-[4px_5px_1px_rgba(255,255,255,1)]'>
       <div className='w-full h-full absolute overflow-clip'>
@@ -18,5 +18,3 @@ function ContactButton() {
     </button>
   );
 }
-
-export default ContactButton;

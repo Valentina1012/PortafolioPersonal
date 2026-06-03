@@ -1,10 +1,11 @@
 import './App.css';
-import AboutMe from './pages/AboutMe';
+import { AboutMe, Projects } from './pages';
 
 function App() {
   return (
     <>
       <AboutMe />
+      <Projects />
     </>
   );
 }

@@ -1,7 +1,6 @@
-import SectionTitle from '../components/SectionTitle';
-import SectionBody from '../components/SectionBody';
-import AboutCard from '../components/AboutCard';
+import { SectionTitle, SectionBody, AboutCard } from '../components';
 import { aboutCardsData } from '../data/aboutCards.tsx';
+
 
 export default function AboutMe() {
   return (
