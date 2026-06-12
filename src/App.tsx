@@ -1,11 +1,12 @@
 import './App.css';
-import { AboutMe, Projects } from './pages';
+import { AboutMe, Projects, Technologies } from './pages';
 
 function App() {
   return (
     <>
       <AboutMe />
       <Projects />
+      <Technologies />
     </>
   );
 }

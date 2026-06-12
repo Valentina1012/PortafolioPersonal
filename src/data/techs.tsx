@@ -1,0 +1,26 @@
+import {
+  CSSLogo,
+  FigmaLogo,
+  GitLogo,
+  HTMLLogo,
+  JavaScriptLogo,
+  ReactLogo,
+  SassLogo,
+  TailwindCSSLogo,
+  TypeScriptLogo,
+  TrelloLogo,
+  GithubLogo,
+} from '../assets/logos';
+export const techs = [
+  { img: <CSSLogo />, category: 'frontend' },
+  { img: <FigmaLogo />, category: 'herramientas' },
+  { img: <GitLogo />, category: 'herramientas' },
+  { img: <TrelloLogo />, category: 'herramientas' },
+  { img: <GithubLogo />, category: 'herramientas' },
+  { img: <HTMLLogo />, category: 'frontend' },
+  { img: <JavaScriptLogo />, category: 'frontend' },
+  { img: <ReactLogo />, category: 'frontend' },
+  { img: <SassLogo />, category: 'frontend' },
+  { img: <TailwindCSSLogo />, category: 'frontend' },
+  { img: <TypeScriptLogo />, category: 'frontend' },
+];

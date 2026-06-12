@@ -18,6 +18,10 @@ import TailwindCSSLogo from './TailwindCSSLogo.svg?react';
 import TailwindCSSLogoSmall from './TailwindCSSLogoSmall.svg?react';
 import TypeScriptLogo from './TypeScriptLogo.svg?react';
 import TypeScriptLogoSmall from './TypeScriptLogoSmall.svg?react';
+import TrelloLogo from './TrelloLogo.svg?react';
+import TrelloLogoSmall from './TrelloLogoSmall.svg?react';
+import GithubLogo from './GithubLogo.svg?react';
+import GithubLogoSmall from './GithubLogoSmall.svg?react';
 
 export {
   CSSLogo,
@@ -40,4 +44,8 @@ export {
   TailwindCSSLogoSmall,
   TypeScriptLogo,
   TypeScriptLogoSmall,
+  TrelloLogo,
+  TrelloLogoSmall,
+  GithubLogo,
+  GithubLogoSmall,
 };
