@@ -16,8 +16,5 @@ type Story = StoryObj<typeof meta>;
 
 // Variants
 export const Default: Story = {
-  render: (args) => <TechCard {...args} icon={<ReactLogo />} />,
-  args: {
-    name: 'React',
-  },
+  render: () => <TechCard icon={<ReactLogo />} />,
 };
