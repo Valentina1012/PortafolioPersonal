@@ -5,7 +5,6 @@ import FigmaLogoSmall from './FigmaLogoSmall.svg?react';
 import GitLogo from './GitLogo.svg?react';
 import GitLogoSmall from './GitLogoSmall.svg?react';
 import VALogo from './Logo-VA.svg?react';
-import VALogoSmall from './LogoSmall-VA.svg?react';
 import HTMLLogo from './HTMLLogo.svg?react';
 import HTMLLogoSmall from './HTMLLogoSmall.svg?react';
 import JavaScriptLogo from './JavaScriptLogo.svg?react';
@@ -31,7 +30,6 @@ export {
   GitLogo,
   GitLogoSmall,
   VALogo,
-  VALogoSmall,
   HTMLLogo,
   HTMLLogoSmall,
   JavaScriptLogo,

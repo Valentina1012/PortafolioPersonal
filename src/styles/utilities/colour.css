@@ -15,7 +15,8 @@
   --background-color-brand-secondary: var(--green-30);
   --background-color-brand-tertiary: var(--green-10);
 
-  --color-background-miscellaneous-primary: var(--white-vista);
+  --background-color-miscellaneous-primary: var(--white-vista);
+  --background-color-miscellaneous-secondary: var(--black-vista);
 
   /* Text */
   --text-color-neutral-primary: var(--greyscale-100);

@@ -22,7 +22,7 @@ export default function Technologies() {
       <div className='w-full flex justify-center'>
         <TechNavigation />
       </div>
-      <div className='flex flex-col w-61 mx-auto lg:w-full lg:flex-row [&>*:nth-child(even)]:self-end lg:[&>*:nth-child(even)]:justify-end'>
+      <div className='flex flex-col w-61 mx-auto lg:w-full h-210 lg:h-fit lg:flex-row mb-xl [&>*:nth-child(even)]:self-end lg:[&>*:nth-child(even)]:justify-end'>
         {techs.map((t, index) => {
           if (t.category === tech.type)
             return (

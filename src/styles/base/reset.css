@@ -12,7 +12,7 @@ body {
   color: var(--color-text-neutral-primary);
   font-weight: normal;
   font-size: var(--text-small);
-  background: var(--color-background-miscellaneous-primary);
+  background: var(--background-color-miscellaneous-primary);
 
   @variant desktop {
     font-size: var(--text-body);

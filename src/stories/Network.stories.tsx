@@ -15,18 +15,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Variants
-export const Large: Story = {
+export const Default: Story = {
   render: (args) => <Network {...args} logo={<GithubLogo />} />,
   args: {
     name: 'Network',
-    size: 'large',
-  },
-};
-
-export const Small: Story = {
-  render: (args) => <Network {...args} logo={<GithubLogo />} />,
-  args: {
-    name: 'Network',
-    size: 'small',
+    link: 'https://example.com/',
   },
 };
